@@ -5,8 +5,16 @@
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 <style>
-  
 
+    #box {
+        border: 1px solid black;
+        height: 100%;
+    }
+    #main-div {
+        height: 900px;
+       
+        background-size: 100% 900px;
+    }
    
 
 </style>
@@ -35,153 +43,155 @@
    
 </head>
 
-<body >
-    
+<body>
+    <div id="main-div">
+        <div id="box" class="img-responsive" >
 
-    @using (Html.BeginForm("SignUp",
+            @using (Html.BeginForm("SignUp",
                         "User",
                         FormMethod.Post,
                         new { enctype = "multipart/form-data" }))
-    {
-     
+            {
 
-        
-    
-        <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" >
-            <div class="wrapper wrapper--w790">
-                <div class="card card-5">
-                    <div class="card-heading">
-                        <h2 class="title"> Registration Form</h2>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST">
-                           
-                            <div class="form-row">
-                                <div class="name">UserName</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        @Html.TextBoxFor(x => x.u_name, new { @class = "input--style-5", @placeholder = "" })
 
+
+
+                <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+                    <div class="wrapper wrapper--w790">
+                        <div class="card card-5">
+                            <div class="card-heading">
+                                <h2 class="title"> Registration Form</h2>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST">
+
+                                    <div class="form-row">
+                                        <div class="name">UserName</div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                @Html.TextBoxFor(x => x.u_name, new { @class = "input--style-5", @placeholder = "" })
+
+
+                                            </div>
+                                        </div>
+                                        <span style="color:red">   @Html.ValidationMessageFor(x => x.u_name) </span>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="name">Email</div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                @Html.TextBoxFor(x => x.u_email, new { @class = "input--style-5", @placeholder = "" })
+
+
+                                            </div>
+                                        </div>
+                                        <span style="color:red">   @Html.ValidationMessageFor(x => x.u_email) </span>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="name">Password</div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                @Html.PasswordFor(x => x.u_password, new { @class = "input--style-5", @placeholder = "" })
+
+
+                                            </div>
+                                        </div>
+                                        <span style="color:red">   @Html.ValidationMessageFor(x => x.u_password) </span>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="name">Contact</div>
+                                        <div class="value">
+                                            <div class="input-group">
+                                                @Html.TextBoxFor(x => x.u_contact, new { @class = "input--style-5", @placeholder = "" })
+
+
+                                            </div>
+                                        </div>
+                                        <span style="color:red">   @Html.ValidationMessageFor(x => x.u_contact) </span>
+                                    </div>
+
+
+                                    <div class="form-row">
+                                        <div class="name">Upload image</div>
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+
+                                            <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="form-row p-t-20">
+                                        <label class="label label--block">Are you an existing customer?</label>
+                                        <div class="p-t-15">
+                                            <label class="radio-container m-r-55">
+                                                Yes
+                                                <input type="radio" checked="checked" name="exist">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <label class="radio-container">
+                                                No
+                                                <input type="radio" name="exist">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <input type="submit" value="Add" class="btn btn-success btn-block" />
 
                                     </div>
-                                </div>
-                                <span style="color:red">   @Html.ValidationMessageFor(x => x.u_name) </span>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="name">Email</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        @Html.TextBoxFor(x => x.u_email, new { @class = "input--style-5", @placeholder = "" })
-
-    
+                                    <div class="form-group">
+                                        <p style="color:red">@ViewBag.error</p>
                                     </div>
-                                </div>
-                                <span style="color:red">   @Html.ValidationMessageFor(x => x.u_email) </span>
+                                </form>
                             </div>
-                            <div class="form-row">
-                                <div class="name">Password</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        @Html.PasswordFor(x => x.u_password, new { @class = "input--style-5", @placeholder = "" })
-
-
-                                    </div>
-                                </div>
-                                <span style="color:red">   @Html.ValidationMessageFor(x => x.u_password) </span>
-                            </div>
-                            <div class="form-row">
-                                <div class="name">Contact</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        @Html.TextBoxFor(x => x.u_contact, new { @class = "input--style-5", @placeholder = "" })
-
-
-                                    </div>
-                                </div>
-                                <span style="color:red">   @Html.ValidationMessageFor(x => x.u_contact) </span>
-                            </div>
-                           
-                      
-                            <div class="form-row">
-                                <div class="name">Upload image</div>
-                                <div class="input-group">
-                                    <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-
-                                    <input type="file" name="imgfile" id="imgfile" class="form-control" required="required" />
-
-
-
-                                </div>
-                            </div>
-                            <div class="form-row p-t-20">
-                                <label class="label label--block">Are you an existing customer?</label>
-                                <div class="p-t-15">
-                                    <label class="radio-container m-r-55">
-                                        Yes
-                                        <input type="radio" checked="checked" name="exist">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="radio-container">
-                                        No
-                                        <input type="radio" name="exist">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-group">
-
-                                <input type="submit" value="Add" class="btn btn-success btn-block" />
-
-                            </div>
-                            <div class="form-group">
-                                <p style="color:red">@ViewBag.error</p>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
     <!-- Jquery JS-->
-        <script src="vendor/jquery/jquery.min.js"></script>
+                <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
-        <script src="vendor/select2/select2.min.js"></script>
-        <script src="vendor/datepicker/moment.min.js"></script>
-        <script src="vendor/datepicker/daterangepicker.js"></script>
+                <script src="vendor/select2/select2.min.js"></script>
+                <script src="vendor/datepicker/moment.min.js"></script>
+                <script src="vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
-        <script src="js/global.js"></script>
+                <script src="js/global.js"></script>
 
 
         <!-- end document-->
 
 
 
-  
 
 
 
 
 
 
-    }
+
+            }
+
+
+            </div>
+        </div>
 
 
 
-    
+            <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+            <script src="~/Scripts/jquery.validate.js"></script>
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 
+            @section Scripts {
 
-   
-    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+                @Scripts.Render("~/bundles/jqueryval")
+            }
 
-    @section Scripts {
-
-        @Scripts.Render("~/bundles/jqueryval")
-    }
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

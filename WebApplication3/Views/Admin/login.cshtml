@@ -1,6 +1,7 @@
 ﻿@model WebApplication3.Models.tbl_admin
 @{
     ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
 
 <h2>login</h2>
@@ -47,9 +48,8 @@
 
 <script src="js/bootstrap.min.js"></script>
 <script src="http://code.jquery.com/jquery.js"></script>
-<div id="main-div">
-    <div id="box" class="img-responsive">
-                   
+
+    
         @using (@Html.BeginForm())
         {
             <div class="insidebox">
@@ -96,9 +96,9 @@
             </div>
 
         }
-    </div>
+    
 
-</div>
+   
 
 
 <script src="~/Scripts/jquery.validate-vsdoc.js"></script>

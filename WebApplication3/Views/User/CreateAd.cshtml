@@ -14,6 +14,7 @@
         height: 900px;
         background-image: url('../../Content/img/building6.jpg');
         background-size: 100% 900px;
+       
     }
 
     .insidebox {
@@ -47,7 +48,7 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 <body></body>
 <div id="main-div">
-    <div id="box" class="img-responsive">
+    <div id="box" class="img-responsive" style="background-color:lightgray">
         @using (Html.BeginForm("CreateAd",
                         "User",
                         FormMethod.Post,
