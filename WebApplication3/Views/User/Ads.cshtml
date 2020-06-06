@@ -8,14 +8,7 @@
 
 
 <style>
-    .cimg {
-        -webkit-transform 5s;
-        transition: transform 5s;
-    }
-
-        .cimg:hover {
-            -webkit-transform: rotatez(360deg);
-        }
+    
 </style>
 
 
@@ -32,31 +25,28 @@
 <body>
     <div style="height:1150px; ">
         <div class="row">
-            <div class="col-lg-12" style="height:100px; border:1px solid solid; ">
+            <div class="col-lg-12" style="height:150px; border:1px solid solid; ">
 
 
                 <img src="~/Content/img/Modern-e-Commerce-Web-Design-Trends.-Part-2.gif" style="width:100%; height:100%" />
                
-
             </div>
 
         </div>
 
 
 
-        <div class="row" style="margin-bottom:40px">
-
-            <div class="col-lg-2 col-md-2">
-                <img src="~/Content/img/150_sleep1_600.gif" class="img img-responsive" style="width:100%; height:100%" />
-            </div>
-
+        <div class="sidebar">
+            <img src="~/Content/img/1806_Sb2_r1.gif " class="img img-responsive" style="width:100%; height:50%" />
+        </div>
+            
             <div class="col-lg-8 col-md-8">
                 <div class="row">
                     @if (Model != null)
                     {
                         foreach (var item in Model)
                         {
-                            <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px">
+                            <div class="col-lg-4 col-md-4" style="height:200px;margin-top:100px; margin-left:100px">
 
                                 <img class="img img-responsive cimg" src="@Url.Content(item.pro_image)" style=" height:100%;width:100% ;border-radius:50px 50px 50px 50px" />
                                 <h4 style="color:darkblue; font-family:'Arial Rounded MT';text-align:center"> @Html.ActionLink(@item.pro_name, "ViewAd", new { id = @item.pro_id })</h4>
@@ -73,9 +63,7 @@
             </div>
 
 
-            <div class="col-lg-2 col-md-2">
-                <img src="~/Content/img/LOB_val_600.gif" class="img img-responsive" style="width:100%; height:100%" />
-            </div>
+        
 
 
 
@@ -84,7 +72,7 @@
         </div>
 
 
-    </div>
+    
 
     <div id="container" style="margin-left: 20px">
         <p></p>

@@ -171,9 +171,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\main.min.css" />
+    <Content Include="Content\img\1806_SB2_r1.gif" />
     <Content Include="Content\img\download.jpg" />
     <Content Include="Content\img\download.png" />
+    <Content Include="Content\img\Modern-e-Commerce-Web-Design-Trends.-Part-2.gif" />
     <Content Include="Content\img\nature-3082832__340.jpg" />
+    <Content Include="Content\img\VF_banner4.gif" />
     <Content Include="Content\js\global.js" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\pagination.css" />
