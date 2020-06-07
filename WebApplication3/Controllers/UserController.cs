@@ -16,7 +16,16 @@ namespace WebApplication3.Controllers
         //
         // GET: /User/
         dbmarketingEntities db = new dbmarketingEntities();
+
+        public ActionResult Home()
+        {
+            return View();
+            
+        }
+        
         public ActionResult Index(int ? page)
+
+
         {
             int pagesize = 9, pageindex = 1;
             pageindex = page.HasValue ? Convert.ToInt32(page) : 1;
@@ -136,6 +145,10 @@ namespace WebApplication3.Controllers
         [HttpGet]
         public ActionResult CreateAd()
         {
+            if (Session["u_id"] == null)
+            {
+                return RedirectToAction("login");
+            }
             List<tbl_category> li = db.tbl_category.ToList();
             ViewBag.categorylist = new SelectList(li, "cat_id", "cat_name");
 

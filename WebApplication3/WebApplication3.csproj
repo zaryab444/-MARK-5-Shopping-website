@@ -176,6 +176,9 @@
     <Content Include="Content\img\download.png" />
     <Content Include="Content\img\Modern-e-Commerce-Web-Design-Trends.-Part-2.gif" />
     <Content Include="Content\img\nature-3082832__340.jpg" />
+    <Content Include="Content\img\puma .jpg" />
+    <Content Include="Content\img\realme.jpg" />
+    <Content Include="Content\img\toyota.jpg" />
     <Content Include="Content\img\VF_banner4.gif" />
     <Content Include="Content\js\global.js" />
     <Content Include="Content\PagedList.css" />
@@ -261,6 +264,7 @@
     <Content Include="Views\User\ViewAd.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
+    <Content Include="Views\User\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

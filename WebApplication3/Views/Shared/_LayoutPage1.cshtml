@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    
+
     <style>
         .na {
             text-decoration: none;
@@ -44,12 +44,46 @@
             background: #007bb5;
             color: white;
         }
+        .dropbtn {
+           
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
 
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
 
-       
-    
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
 
-     
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
     </style>
     <title>@Page.Title</title>
     @RenderSection("head", required: false)
@@ -60,24 +94,24 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body >
+<body>
     @*<div class="head">
-      
 
-        <img id="img" src="~/Content/img/download.png" alt="some text" width=150 height=100 style="left:80px" />  
+
+        <img id="img" src="~/Content/img/download.png" alt="some text" width=150 height=100 style="left:80px" />
         <h1>SHOPPING CART</h1>
-      
-     
-     
+
+
+
         </div>*@
 
-   
 
-       
 
-      
 
-           
+
+
+
+
     <div class="navbar navbar-inverse" style="background-color:purple">
 
         <div class="container">
@@ -87,79 +121,92 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               
-            </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="Index">CATEGORIES</a></li>
-                       
-                        <li><a href="login">LOGIN</a></li>
-                        <li><a href="CreateAd">SELL ON SITE</a></li>
-                        <li><a href="#"> CustomerCare</a></li>
-                    </ul>
-                </div>
 
-           
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="Home">Home</a></li>
+                    <li><a href="Index">CATEGORIES</a></li>
+
+                    <li><a href="login">LOGIN</a></li>
+                    <li><a href="CreateAd">SELL ON SITE</a></li>
+                    
+                   <li class="dropdown">
+                       
+                           <a class="dropbtn" href="#"> CustomerCare</a>
+                           <div class="dropdown-content">
+                               <a href="About">About</a>
+                               <a href="/">Query Procedure</a>
+                               <a href="/">Cart</a>
+                           </div>
+                           
+</li>
+
+
+                </ul>
+
+            </div>
+
+
         </div>
     </div>
     <img id="img" src="~/Content/img/download.png" alt="some text" width=150 height=100 style="left:80px" />
-   
-            
-
-           
 
 
 
 
-            @RenderBody()
-            <script src="~/Scripts/bootstrap.min.js"></script>
-            <script src="~/Scripts/bootstrap.js"></script>
-            @RenderSection("scripts", required: false)
 
+
+
+
+    @RenderBody()
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <div class="container">
+        <footer class="footer">
             <div class="container">
-                <footer class="footer">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-4 offset-1 col-sm-2">
-                                <h5>Links</h5>
-                                <ul class="list-unstyled">
-                                    <li><a href="#" style="color:blue">Home</a></li>
-                                    <li><a href="#" style="color:blue">About</a></li>
-                                    <li><a href="#" style="color:blue">Contact</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-7 col-sm-5">
-                                <h5>Our Address</h5>
-                                <address>
-                                    <i class="fa fa-phone fa-lg"></i>: +92 1234 5678<br>
-                                    <i class="fa fa-fax fa-lg"></i>: +92 3356 4321<br>
-                                    <i class="fa fa-envelope fa-lg"></i>:
-                                    <a href="#">Shopping@cart.net</a>
-                                </address>
-                            </div>
-                            <div class="col-12 col-sm-4 align-self-center">
-                                <div class="text-center">
-                                    <div class="text-center">
-                                        <h4>Follow us</h4>
-                                        <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
-                                        <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
-                                        <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
-                                        <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+                <div class="row">
+                    <div class="col-4 offset-1 col-sm-2">
+                        <h5>Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" style="color:blue">Home</a></li>
+                            <li><a href="#" style="color:blue">About</a></li>
+                            <li><a href="#" style="color:blue">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-7 col-sm-5">
+                        <h5>Our Address</h5>
+                        <address>
+                            <i class="fa fa-phone fa-lg"></i>: +92 1234 5678<br>
+                            <i class="fa fa-fax fa-lg"></i>: +92 3356 4321<br>
+                            <i class="fa fa-envelope fa-lg"></i>:
+                            <a href="#">Shopping@cart.net</a>
+                        </address>
+                    </div>
+                    <div class="col-12 col-sm-4 align-self-center">
+                        <div class="text-center">
+                            <div class="text-center">
+                                <h4>Follow us</h4>
+                                <a class="btn btn-social-icon btn-google" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+                                <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+                                <a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+                                <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
 
-                                    </div>
+                            </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <div class="col-auto">
-                                <p>© Copyright 2018 Ristorante Con Fusion</p>
-                            </div>
                         </div>
                     </div>
-                </footer>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <p>© Copyright 2018 Ristorante Con Fusion</p>
+                    </div>
+                </div>
             </div>
+        </footer>
+    </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
