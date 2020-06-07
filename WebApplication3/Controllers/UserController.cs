@@ -175,7 +175,7 @@ namespace WebApplication3.Controllers
                 p.pro_image = path;
                 p.pro_fk_cat = pvm.pro_fk_cat;
                 p.pro_des = pvm.pro_des;
-               // p.pro_fk_user = Convert.ToInt32(Session["u_id"].ToString());  // isko null krna ha
+                p.pro_fk_user = Convert.ToInt32(Session["u_id"].ToString());  // isko null krna ha
                 db.tbl_product.Add(p);
                 db.SaveChanges();
                 Response.Redirect("Index");
