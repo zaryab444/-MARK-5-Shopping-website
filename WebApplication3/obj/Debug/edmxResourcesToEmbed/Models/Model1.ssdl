@@ -35,7 +35,7 @@
     <Property Name="pro_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="pro_name" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="pro_image" Type="varchar(max)" Nullable="false" />
-    <Property Name="pro_des" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="pro_des" Type="varchar" MaxLength="900" />
     <Property Name="pro_price" Type="int" />
     <Property Name="pro_fk_cat" Type="int" />
     <Property Name="pro_fk_user" Type="int" />

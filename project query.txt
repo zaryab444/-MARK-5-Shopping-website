@@ -1,0 +1,54 @@
+create database dbemarketing
+use dbemarketing
+create table tbl_admin(
+
+ad_id int identity primary key ,
+ad_username varchar(50) not null unique,
+ad_password varchar(50) not null
+);
+insert into tbl_admin 
+values ('root','admin123'),
+('admin','admin123'),
+('test', 'admin123');
+
+select *from tbl_admin
+--------------------------------------
+   create table tbl_category
+   (
+   cat_id int identity primary key ,
+   cat_name varchar(50) not null unique,
+   cat_image  varchar(max) not null,
+   cat_fk_ad int foreign key references tbl_admin(ad_id)   
+cat_status int 
+  
+   
+   );
+   -------------------------------------------------------------
+   create table tbl_user(
+    u_id int identity primary key ,
+   u_name varchar(50) not null  ,
+   u_email varchar(50) not null unique,
+   u_password varchar(50) not null,
+   cat_image  varchar(max) not null,
+   u_contact varchar(50) not null unique   
+   
+   
+   
+   ); 
+   -----------------------------------------------------------------
+    create table tbl_product(
+	pro_id int identity primary key ,
+   pro_name varchar(50) not null unique,
+   pro_image  varchar(max) not null,
+   pro_des varchar(900) not null,
+   pro_price int ,
+
+   pro_fk_cat int foreign key references tbl_category (cat_id),   
+	pro_fk_user int foreign key references tbl_user (u_id)
+
+	
+	
+	
+	
+	
+	);
