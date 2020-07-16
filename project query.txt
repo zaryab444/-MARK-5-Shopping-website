@@ -48,6 +48,12 @@ cat_status int
 
 	
 	
+
+
+ALTER TABLE Complain ALTER COLUMN Discription VARCHAR(MAX)
+
+ALTER TABLE Ad_Post
+DROP CONSTRAINT Ad_name;
 	
 	
 	

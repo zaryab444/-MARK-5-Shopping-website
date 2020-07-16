@@ -229,39 +229,39 @@ namespace WebApplication3.Controllers
 
             return RedirectToAction("Index");
         }
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            }
-            tbl_product tbl_pro = db.tbl_product.Find(id);
-            if (tbl_pro == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tbl_pro);
-        }
+        //    }
+        //    tbl_product tbl_pro = db.tbl_product.Find(id);
+        //    if (tbl_pro == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(tbl_pro);
+        //}
 
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult Deleteconfirmed(int id)
-        {
-            tbl_product tbl_pro = db.tbl_product.Find(id);
-            db.tbl_product.Remove(tbl_pro);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Deleteconfirmed(int id)
+        //{
+        //    tbl_product tbl_pro = db.tbl_product.Find(id);
+        //    db.tbl_product.Remove(tbl_pro);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
        
 

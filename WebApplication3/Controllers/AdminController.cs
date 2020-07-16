@@ -144,6 +144,116 @@ namespace WebApplication1.Controllers
             return path;
         }
 
+       // public ActionResult Delete(int? id)
+       // {
+       //     if (id == null)
+       //     {
+       //         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+       //     }
+       //     tbl_category tbl_cat = db.tbl_category.Find(id);
+       //    if (tbl_cat == null)
+       //     {
+       //         return HttpNotFound();
+       //     }
+       //     return View(tbl_cat);
+
+         
+       //}
+
+       // [HttpPost, ActionName("Delete")]
+       // [ValidateAntiForgeryToken]
+       // public ActionResult Deleteconfirmed(int id,   )
+       // {
+       //     tbl_category tbl_cat = db.tbl_category.Find(id);
+       //     db.tbl_category.Remove(tbl_cat);
+       //     db.SaveChanges();
+       //     return RedirectToAction("ViewCategory");
+
+      
+
+       // }
+
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
+
+        public ActionResult Ads(int? id, int? page)
+        {
+            int pagesize = 9, pageindex = 1;
+            pageindex = page.HasValue ? Convert.ToInt32(page) : 1;
+            var list = db.tbl_product.Where(x => x.pro_fk_cat == id).OrderByDescending(x => x.pro_id).ToList();
+            IPagedList<tbl_product> stu = list.ToPagedList(pageindex, pagesize);
+
+
+            return View(stu);
+
+
+        }
+        public ActionResult ViewAd(int? id)
+        {
+            Adviewmodel ad = new Adviewmodel();
+            tbl_product p = db.tbl_product.Where(x => x.pro_id == id).SingleOrDefault();
+            ad.pro_id = p.pro_id;
+            ad.pro_name = p.pro_name;
+            ad.pro_image = p.pro_image;
+            ad.pro_price = p.pro_price;
+            ad.pro_des = p.pro_des;
+            tbl_category cat = db.tbl_category.Where(x => x.cat_id == p.pro_fk_cat).SingleOrDefault();
+            ad.cat_name = cat.cat_name;
+            //tbl_user u = db.tbl_user.Where(x => x.u_id == p.pro_fk_user).SingleOrDefault();
+            //ad.u_name = u.u_name;
+            //ad.cat_image = u.cat_image;
+            //ad.u_contact = u.u_contact;
+            //ad.pro_fk_user = u.u_id;
+
+
+
+
+            return View(ad);
+        }
+
+        public ActionResult Deleted(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+            }
+            tbl_product tbl_pro = db.tbl_product.Find(id);
+            if (tbl_pro == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tbl_pro);
+        }
+
+        [HttpPost, ActionName("Deleted")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Deleteconfirmed(int id)
+        {
+            tbl_product tbl_pro = db.tbl_product.Find(id);
+            db.tbl_product.Remove(tbl_pro);
+            db.SaveChanges();
+            return RedirectToAction("ViewCategory");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -161,7 +271,7 @@ namespace WebApplication1.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Deleteconfirmed(int id)
+        public ActionResult Deletedconfirmed(int id)
         {
             tbl_category tbl_cat = db.tbl_category.Find(id);
             db.tbl_category.Remove(tbl_cat);
@@ -169,16 +279,21 @@ namespace WebApplication1.Controllers
             return RedirectToAction("ViewCategory");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-       
+
+
+
+
+
+
 
     }
 }
